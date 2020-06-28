@@ -8,7 +8,7 @@
         </div>
         <div class="col-9">
             <div>
-                <h1>osagie.erhabor</h1>
+                <h1>{{$user->username}}</h1>
             </div>
             <div class="pt-5 d-flex">
                 <div class="pr-5"><strong>5</strong> posts</div>
@@ -16,9 +16,9 @@
                 <div class="pr-5"><a href="#"><strong>129</strong> following</a></div>
             </div>
             <div class="pt-5">
-                <div style="font-weight: bold">Osagie Erhabor</div>
-                <div>Summary</div>
-                <div><a href="#">Link</a></div>
+                <div style="font-weight: bold">{{$user->profile->title}}</div>
+                <div>{{$user->profile->description}}</div>
+                <div><a href="{{$user->profile->url}}" target="_blankno">{{$user->profile->url}}</a></div>
             </div>
         </div>
 
