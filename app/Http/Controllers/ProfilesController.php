@@ -14,10 +14,7 @@ class ProfilesController extends Controller
      */
     public function index($user)
     {
-        $user = User::findOrFail($user);
-        return view('home', [
-            'user' => $user,
-        ]);
+        //
     }
 
     /**
@@ -49,7 +46,10 @@ class ProfilesController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('profiles.show', [
+            'user' => $user,
+        ]);
     }
 
     /**
