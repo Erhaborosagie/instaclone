@@ -48,8 +48,10 @@ class ProfilesController extends Controller
      */
     public function show(User $user)
     {
+        $follow = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
         return view('profiles.show', [
             'user' => $user,
+            'follow' => $follow
         ]);
     }
 
