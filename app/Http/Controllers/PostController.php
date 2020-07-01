@@ -16,11 +16,14 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->get();
+//        dd($users);
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -45,7 +48,6 @@ class PostController extends Controller
            'caption'=> 'required',
             'image' => 'required | image'
         ]);
-//        \App\Post::create($data);
         $imagePath = $request['image']->store('uploads', 'public');
 
         $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
