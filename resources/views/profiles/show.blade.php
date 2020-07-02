@@ -17,9 +17,9 @@
                 @endcan
             </div>
             <div class="pt-5 d-flex">
-                <div class="pr-5"><strong>{{$user->posts->count()}}</strong> posts</div>
-                <div class="pr-5"><a href="#"><strong>{{$user->profile->followers->count()}}</strong> followers</a></div>
-                <div class="pr-5"><a href="#"><strong>{{$user->following->count()}}</strong> following</a></div>
+                <div class="pr-5"><strong>{{$postCount}}</strong> posts</div>
+                <div class="pr-5"><a href="#"><strong>{{$followersCount}}</strong> followers</a></div>
+                <div class="pr-5"><a href="#"><strong>{{$followingCount}}</strong> following</a></div>
             </div>
             <div class="pt-5">
                 <div style="font-weight: bold">{{$user->profile->title}}</div>
